@@ -1,1 +1,93 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Our Love Story</title>
+	<style type="text/css">
+		@font-face {
+			font-family: dight;
+			src: url('digital-7_mono.ttf');
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="./js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
+</head>
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br/>
+				<span class="space"/><span class="comments">* 你好，我是kuro,</span><br />
+				<span class="space"/><span class="comments">* 下面请听一下工科男的表白.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"Kuro"</span>);<br />
+				Girl u = <span class="keyword">new</span> Gril(<span class="string">"LoXZhen"</span>);<br />
+				<span class="comments">// Dec 21, 2017, 我跟你说我爱你. </span><br />
+				i.love(u);<br />
+				<span class="comments">// 幸运的是，你成为了我的女朋友.</span><br />
+				u.accepted();<br />
+				<span class="comments">// 从那以后，我每天都在想你.</span><br />
+				i.miss(u);<br />
+				<span class="comments">// 在乎你和我们的爱情.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// 你说过你不会那么早结婚，没关系，我也很晚.</span><br />
+				<span class="comments">// 所以，我会一直等你，并且我充满信心.</span><br />
+				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isHesitate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">// 这是一个很重要的决定</span><br />
+				<span class="placeholder"/><span class="comments">// 你应该要好好想清楚.</span><br />
+				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
+				}<br />
+				<span class="comments">// 经过一个浪漫婚礼，我们会在一起生活 forever.</span><br />
+				i.marry(u);<br />
+				i.liveHappilyWith(u);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						LoXZhen, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- Kuro</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let offsetX = $("#loveHeart").width() / 2;
+		let offsetY = $("#loveHeart").height() / 2;
+		let together = new Date();
+		together.setFullYear(2017, 11, 21); //2017/1/26
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		if (!document.createElement('canvas').getContext) {
+			let msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none");
+		} else {
+			setTimeout(function() {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+
+			adjustCodePosition();
+			$("#code").typewriter(); // 打字效果
+		}
+	</script>
+</body>
+</html>
